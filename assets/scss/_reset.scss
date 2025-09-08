@@ -1,0 +1,166 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--color);
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: var(--roboto);
+  font-optical-sizing: auto;
+  font-size: 14px;
+  line-height: 1.4;
+  font-style: normal;
+  font-variation-settings: 'slnt' 0, 'wdth' 100, 'GRAD' 0, 'XOPQ' 96, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514,
+    'YTUC' 712;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  color: inherit;
+  font-weight: 740;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+ul,
+menu {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  display: block;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.container {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.link {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.title {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  &.white {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    color: var(--white);
+  }
+}
+
+.gradient-text,
+.instructions li:before,
+.register-check-list > li:before {
+  background: var(--gradient-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  &.white {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    color: var(--white);
+  }
+}
+
+.gradient-bg {
+  background: var(--gradient);
+}
+
+.section-border {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 310px;
+  z-index: 5;
+  opacity: 1;
+  pointer-events: none;
+  &.section-border--bottom {
+    background: url('../img/svg/bb.svg') no-repeat center center;
+    background-size: 100% 100%;
+    margin-top: -240px;
+  }
+}

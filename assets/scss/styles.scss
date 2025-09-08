@@ -1,0 +1,35 @@
+:root {
+  --roboto: 'Roboto Flex', sans-serif;
+
+  --bg: linear-gradient(90deg, #262a33 0%, #333a40 40%, #262b33 100%);
+  --color: #ffffff;
+  --white: #ffffff;
+  --black: #1e222b;
+  --brown: #392a25;
+  --grey: #c2c5cc;
+  --grey-dark: #3e464b;
+  --red: #ff4053;
+  --invalid: #ff4053;
+  --gold: #fae08a;
+  --vh: 1vh;
+  --gradient: linear-gradient(90deg, #bd7e3a, #fae08a, #ae6e31);
+  --gradient-light: linear-gradient(90deg, #faac64, #fae08a, #f89a42);
+}
+
+@import 'fonts';
+@import 'mixins';
+@import 'animations';
+@import 'preloader';
+@import 'reset';
+@import 'swiper';
+@import 'header';
+@import 'buttons';
+@import 'typography';
+@import 'accordeons';
+@import 'forms';
+@import 'footer';
+@import 'popup';
+@import 'section__hero';
+@import 'section__stadion';
+@import 'section__winners';
+@import 'dropzone';

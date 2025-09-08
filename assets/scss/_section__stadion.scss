@@ -1,0 +1,178 @@
+.section--stadion {
+  background: linear-gradient(90deg, #20242d, #333a3f, #1f232c);
+  padding: 50px 0px 100px 0px;
+  margin-top: -0px;
+
+  .try {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+.stadion {
+  width: 100%;
+  position: relative;
+  &.hidden {
+    .stadion__closed {
+      display: flex;
+      z-index: 2;
+    }
+
+    .stadion__seats {
+      pointer-events: none;
+      opacity: 0.1;
+    }
+  }
+}
+
+.stadion__closed {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.stadion__seats {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 60px;
+  z-index: 1;
+
+  .row {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: -18px 0px;
+    &:last-child {
+      margin-left: 80px;
+    }
+  }
+}
+
+.seat {
+  position: relative;
+  width: 93px;
+  height: 114px;
+  background: url('../img/seat.webp') no-repeat center center/cover;
+  margin: 0 -4px;
+  &.seat--right,
+  &.seat--left {
+    width: 90px;
+    margin: 0 -8px;
+    span {
+      font-size: 40px;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &.seat--right {
+    background: url('../img/seat-right.webp') no-repeat center center/cover;
+    span {
+      transform: skewX(-6deg);
+    }
+  }
+  &.seat--left {
+    background: url('../img/seat-left.webp') no-repeat center center/cover;
+    span {
+      transform: skewX(6deg);
+    }
+  }
+
+  span {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 54px;
+    height: 54px;
+    margin: 12px auto;
+    font-size: 42px;
+    font-weight: 700;
+    cursor: pointer;
+    font-variation-settings: 'GRAD' -20, 'wdth' 100, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+    &.icon {
+      display: none;
+      background: url('../img/svg/checkbox.svg') no-repeat center center;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      span {
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
+        color: var(--white);
+      }
+    }
+  }
+
+  &.checked,
+  &.loading {
+    pointer-events: none;
+    .gradient-text {
+      display: none;
+    }
+    .icon {
+      display: flex;
+    }
+  }
+
+  &.loading {
+    .icon {
+      background: none;
+      &:before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-left: 4px solid rgba(255, 255, 255, 1);
+        border-top: 4px solid rgba(255, 255, 255, 1);
+        border-right: 4px solid rgba(255, 255, 255, 0);
+        border-bottom: 4px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        animation: rotate 0.3s linear infinite;
+      }
+    }
+  }
+}
+
+.try {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background: var(--grey-dark) url('../img/svg/counter.svg') no-repeat center center;
+  background-size: 90% 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  span {
+    font-weight: 700;
+    font-size: 50px;
+    font-variation-settings: 'GRAD' -20, 'wdth' 100, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
+}

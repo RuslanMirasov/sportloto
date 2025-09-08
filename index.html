@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+    <meta name="theme-color" content="#2E323A" />
+    <meta name="description" content="Спортлото - Найдите своё место на Стадионе Удачи!" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/dropzone.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
+    <title>Спортлото</title>
+  </head>
+
+  <body class="body">
+    <!--PRELOADER-->
+    <div class="preloader" data-preloader>
+      <span>
+        <img src="./assets/img/svg/logo.svg" alt="Спортлото" />
+      </span>
+    </div>
+
+    <!--HEADER-->
+    <header class="header">
+      <div class="container">
+        <a href="./" class="logo" aria-label="Спортлото">
+          <img src="./assets/img/svg/logo.svg" alt="Спортлото" />
+        </a>
+
+        <nav class="navigation">
+          <ul class="menu">
+            <li><a href="./" class="menu__link">Главная</a></li>
+            <li><a href="./" class="menu__link">Правила</a></li>
+            <li><a href="./" class="menu__link">Призы</a></li>
+            <li><a href="./" class="menu__link">Победители</a></li>
+            <li><button type="button" class="menu__link" data-popup-open="callback">Контакты</button></li>
+            <li class="header__buttons">
+              <button class="button" data-popup-open="cheque"><span>Загрузить чек</span></button>
+              <button class="button button--white" data-popup-open="login"><span>Войти</span></button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="burger">
+          <span>Меню бургер</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!--HERO-->
+      <section class="section section--hero">
+        <div class="hero-background-images">
+          <img src="./assets/img/hero/lines.webp" alt="" class="lines" />
+          <img src="./assets/img/hero/stadium.webp" alt="" class="stadium" />
+          <img src="./assets/img/hero/coin-left.webp" alt="" class="coin-left" />
+          <img src="./assets/img/hero/coin.webp" alt="" class="coin" />
+          <img src="./assets/img/hero/gift.webp" alt="" class="gift" />
+        </div>
+        <div class="container">
+          <div class="hero-title">
+            <img src="./assets/img/hero/madal.webp" alt="" class="madal" />
+            <h1 class="title title--h1 ta--c">
+              Найдите своё место <br />
+              на Стадионе Удачи!
+            </h1>
+
+            <a href="#stadion" class="scroll-down" data-scrollto>
+              <img src="./assets/img/svg/scroll-down.svg" alt="" />
+            </a>
+          </div>
+
+          <ul class="instructions">
+            <li>
+              <img src="./assets/img/hero/info1.webp" alt="" />
+              <p>
+                <b class="gradient-text">Купите</b> пакет билетов «<span class="gradient-text">Спортлото МИНИ</span>» <br />
+                или&nbsp;«<span class="gradient-text">Спортлото МАКС</span>»
+              </p>
+            </li>
+            <li>
+              <img src="./assets/img/hero/info2.webp" alt="" />
+              <p>
+                <b class="gradient-text">Зарегистрируйте чек,</b> <br />
+                чтобы стать участником еженедельного и&nbsp;главного розыгрышей
+              </p>
+            </li>
+            <li>
+              <img src="./assets/img/hero/info3.webp" alt="" />
+              <p>
+                <b class="gradient-text">Испытайте удачу</b> <br />на&nbsp;стадионе — открывайте места за&nbsp;каждую покупку и&nbsp;ищите
+                моментальные призы
+              </p>
+            </li>
+            <li>
+              <img src="./assets/img/hero/info4.webp" alt="" />
+              <p><b class="gradient-text">Больше покупок —</b> <br />больше шансов на&nbsp;победу</p>
+            </li>
+          </ul>
+
+          <div class="buttons ta--c">
+            <a href="#" class="button"><span>Полные правила</span></a>
+          </div>
+        </div>
+      </section>
+      <div class="section-border section-border--bottom"></div>
+
+      <!--STADION-->
+      <section class="section section--stadion" id="stadion">
+        <div class="container">
+          <div class="try">
+            <span class="gradient-text">0</span>
+          </div>
+
+          <div class="title-wrapper">
+            <h2 class="title title--h2 ta--c white">Выберите место <br />и&nbsp;выиграйте приз</h2>
+            <p class="subtitle">Дополнительное описание</p>
+          </div>
+
+          <!--Чтобы скрыть блок добавь класс hidden ( class="stadion hidden" )-->
+          <div class="stadion">
+            <!--Заглушка-->
+            <div class="stadion__closed">
+              <h2 class="title title--h2 white">
+                Для участия в акции<br />
+                необходимо зарегистрироваться
+              </h2>
+              <button class="button" data-popup-open="register"><span>Зарегистрироваться</span></button>
+            </div>
+
+            <!--Выбор номера-->
+            <div class="stadion__seats" data-stadion></div>
+          </div>
+        </div>
+      </section>
+
+      <!--WINNERS-->
+      <section class="section section--winners">
+        <div class="container">
+          <div class="winners-filters">
+            <h2 class="title title--h2 yellow">Победители</h2>
+            <script>
+              function onSearchFormSubmit(e) {
+                e.preventDefault();
+                alert('Форма поиска отправлена');
+              }
+            </script>
+
+            <form action="#" class="form" novalidate onsubmit="onSearchFormSubmit(event)">
+              <label class="label">
+                <input type="tel" name="search" class="input input-search" autocomplete="off" required />
+                <span class="label__text">Поиск по телефону</span>
+              </label>
+              <button class="input-icon">
+                <img src="./assets/img/svg/search.svg" alt="" />
+              </button>
+            </form>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Имя</th>
+                <th>Контакт</th>
+                <th>Приз</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>дд.мм.гггг</td>
+                <td>Пантелеймон Р.</td>
+                <td>+XXXXXXXX***</td>
+                <td>Баллы Яндекс Плюс</td>
+              </tr>
+              <tr>
+                <td>дд.мм.гггг</td>
+                <td>Константин Д.</td>
+                <td>+XXXXXXXX***</td>
+                <td>500 ₽ на Ozon</td>
+              </tr>
+              <tr>
+                <td>дд.мм.гггг</td>
+                <td>Лера В.</td>
+                <td>+XXXXXXXX***</td>
+                <td>Сертификат Cozy Home</td>
+              </tr>
+              <tr>
+                <td>дд.мм.гггг</td>
+                <td>Антонина Н.</td>
+                <td>+XXXXXXXX***</td>
+                <td>Сертификат Cozy Home</td>
+              </tr>
+              <tr>
+                <td>дд.мм.гггг</td>
+                <td>Елизавета Т.</td>
+                <td>+XXXXXXXX***</td>
+                <td>Сертификат Cozy Home</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <ul class="pagination">
+            <li>
+              <button href="#" class="button button--prev" disabled>
+                <img src="./assets/img/svg/prev.svg" alt="" />
+              </button>
+            </li>
+            <li><a href="#" class="pagination-btn active">1</a></li>
+            <li><a href="#" class="pagination-btn">2</a></li>
+            <li><a href="#" class="pagination-btn">3</a></li>
+            <li><a href="#" class="pagination-btn">4</a></li>
+            <li>
+              <button class="button button--next">
+                <img src="./assets/img/svg/next.svg" alt="" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="border border-bottom"></div>
+    </main>
+
+    <!--FOOTER-->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer__socilas">
+          <p>Будьте в <br />курсе всех новостей</p>
+          <ul class="socials">
+            <li>
+              <a href="#" class="button button--social" target="_blank">
+                <img src="./assets/img/svg/vk.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="button button--social" target="_blank">
+                <img src="./assets/img/svg/ok.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="button button--social" target="_blank">
+                <img src="./assets/img/svg/telegram.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__qr">
+          <div class="text">
+            <p>
+              Наведите камеру на&nbsp;QR-код <br />
+              или нажмите на&nbsp;кнопку, <br />
+              чтобы скачать мобильное <br />
+              приложение «Столото»
+            </p>
+
+            <a href="#" class="button button--download" download>
+              <img src="./assets/img/svg/android.svg" alt="" />
+              <span>Скачать</span>
+            </a>
+          </div>
+
+          <img src="./assets/img/qr.webp" alt="" class="qr-code" />
+        </div>
+
+        <div class="footer__description">
+          <span>Срок проведения акции: с 19.09.2025 по 30.11.2025</span>
+          <span>Организатор акции: АО “ТК Центр”</span>
+          <p>
+            «Спортлото 55 лет» относится к первому тиражу советской одноимённой игры «Спортлото» по формуле «6 из 49», который состоялся 20 октября
+            1970&nbsp;года. Лотерея&nbsp;«ВГТЛ-2», алгоритм определения выигрышей №&nbsp;14 («Большое Спортлото»), проводится на&nbsp;основании
+            Распоряжения Правительства РФ от&nbsp;14.09.2009 №&nbsp;1318-р. Лотереи&nbsp;«ВГЛ 1 Спорт», алгоритм определения выигрышей №&nbsp;2
+            («Спортлото «5&nbsp;из&nbsp;36» / «клава»), «ВГЛ&nbsp;2&nbsp;Спорт», алгоритм определения выигрышей №&nbsp;1 («Спортлото
+            «6&nbsp;из&nbsp;45»), «ВГЛ&nbsp;3&nbsp;Спорт», алгоритм определения выигрышей №&nbsp;6 («Спортлото «4&nbsp;из&nbsp;20»), «ВГЛ
+            &nbsp;5&nbsp;Спорт», алгоритм определения выигрышей №&nbsp;2 («Спортлото «7&nbsp;из&nbsp;49») проводятся на&nbsp;основании Распоряжения
+            Правительства РФ от&nbsp;02.05.2012 № &nbsp;687-р. <br />Срок проведения - до&nbsp;31.12.2029. Подробнее о&nbsp;лотереях - на
+            <a href="https://www.stoloto.ru/" target="_blank">stoloto.ru</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!--POPUPS-->
+    <div class="backdrop" data-backdrop>
+      <div class="popup" data-popup>
+        <!--LOGIN POPUP-->
+        <div class="popup-content" id="login">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="subtitle">Введите номер телефона, который вы указали при&nbsp;покупке набора</h2>
+
+          <!--Login form-->
+          <script>
+            function onLoginFormSubmit(e) {
+              e.preventDefault();
+              alert('Отправлена форма логина!');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onLoginFormSubmit(event)">
+            <label class="label">
+              <input type="tel" name="phone" class="input" required />
+              <span class="label__text">Номер телефона</span>
+            </label>
+            <fieldset>
+              <label class="label">
+                <input type="checkbox" name="confirm_age" class="checkbox" required />
+                <p class="label__text">
+                  <span> Продолжая пользоваться сайтом, вы <br />подтверждаете, что вам исполнилось 18 лет </span>
+                </p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="consent_personal_data" class="checkbox" required />
+                <p class="label__text">
+                  <span>
+                    Я даю согласие на&nbsp;обработку моих <a href="#" class="gradient-text">персональных данных</a> в&nbsp;соответствии
+                    с&nbsp;Федеральным законом №152-ФЗ «О&nbsp;персональных данных»
+                  </span>
+                </p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="accept_terms" class="checkbox" required />
+                <p class="label__text">
+                  <span>
+                    Я ознакомлен(а) и соглашаюсь с <a href="#" class="gradient-text">Политикой конфиденциальности</a> и
+                    <a href="#" class="gradient-text">Правилами <br />использования сайта.</a>
+                  </span>
+                </p>
+              </label>
+            </fieldset>
+            <button type="submit" class="button full"><span>Войти</span></button>
+          </form>
+
+          <!-- <script>
+                function onRegisterFormSubmit(e) {
+                  e.preventDefault();
+                  window.popup.open('register-success');
+                }
+              </script>
+              <form action="#" class="form" novalidate onsubmit="onRegisterFormSubmit(event)">
+                <label class="label">
+                  <span class="label__text">Имя</span>
+                  <input type="text" name="name" class="input" required />
+                </label>
+                <label class="label">
+                  <span class="label__text">Фамилия</span>
+                  <input type="text" name="sername" class="input" required />
+                </label>
+                <label class="label">
+                  <span class="label__text">E-mail</span>
+                  <input type="email" name="email" class="input" required />
+                </label>
+                <label class="label">
+                  <span class="label__text">Пароль</span>
+                  <input type="password" name="password" class="input" required placeholder="Придумайте пароль" />
+                </label>
+                <label class="label">
+                  <span class="label__text">Телефон</span>
+                  <input type="tel" name="phone" class="input" required placeholder="+7 ___ ___-__-__" autocomplete="off" />
+                </label>
+                <fieldset>
+                  <label class="label">
+                    <input type="checkbox" name="agree" class="checkbox" required />
+                    <span class="label__text">Я соглашаюсь с&nbsp;<a href="#" class="link">Правилами промоакции</a> </span>
+                  </label>
+                  <label class="label">
+                    <input class="checkbox" required type="checkbox" name="RegistrationInput.PersonalConfirmation" />
+                    <span class="label__text">
+                      Я соглашаюсь с&nbsp;<a href="/assets/pdf/rules.pdf?v=2" class="link">Соглашением на обработку персональных данных</a>
+                    </span>
+                  </label>
+                </fieldset>
+
+                <button type="submit" class="button button--submit full"><span>Зарегистрироваться</span></button>
+              </form> -->
+        </div>
+
+        <!--CHEQUE POPUP-->
+        <div class="popup-content" id="cheque">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2 white ta--c">Регистрация чека</h2>
+          <ul class="register-check-list">
+            <li>
+              <p>Зайдите на почту, указанную при&nbsp;регистрации на сайте / в&nbsp;приложении Столото и&nbsp;найдите&nbsp;кассовый чек</p>
+              <span>Также кассовый чек можно получить в&nbsp;приложении банка, с&nbsp;которого совершена покупка</span>
+            </li>
+            <li>
+              <p>Сделайте скрин</p>
+              <span>Скрин должен быть полным и содержать:</span>
+              <ul>
+                <li>информацию о продавце</li>
+                <li>перечень купленных продуктов</li>
+                <li>QR код</li>
+              </ul>
+            </li>
+            <li>
+              <p>Нажмите «Загрузить»</p>
+            </li>
+            <li>
+              <p>Выберете скрин нужного чека и&nbsp;ожидайте проверки</p>
+            </li>
+          </ul>
+
+          <button type="button" class="button full" data-popup-open="cheque-load">
+            <span>Загрузить</span>
+          </button>
+        </div>
+
+        <!--CHEQUE LOAD POPUP-->
+        <div class="popup-content" id="cheque-load">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="title title--h2 white">Регистрация чека</h2>
+
+          <!--cheque load form-->
+          <script>
+            function onChequeLoadFormSubmit(e) {
+              e.preventDefault();
+              window.popup.open('cheque-success');
+            }
+          </script>
+
+          <form action="#" class="dropzone" id="my-dropzone"></form>
+
+          <button type="submit" class="button full" onClick="onChequeLoadFormSubmit(event)">
+            <span>Загрузить</span>
+          </button>
+
+          <button type="button" class="link" data-popup-open="cheque-in-self">Ввести данные чека вручную</button>
+        </div>
+
+        <!--CHEQUE-IN SELF POPUP-->
+        <div class="popup-content" id="cheque-in-self">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2 white">Ввод данных чека</h2>
+          <p class="popup-text">Внимательно введите <br />данные чека в&nbsp;поля ниже</p>
+
+          <!--Login form-->
+          <script>
+            function onChequeSelfFormSubmit(e) {
+              e.preventDefault();
+              window.popup.open('cheque-success');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onChequeSelfFormSubmit(event)">
+            <label class="label">
+              <input type="text" name="fn" class="input" required placeholder="" />
+              <span class="label__text">ФН</span>
+            </label>
+
+            <label class="label">
+              <input type="text" name="fd" class="input" required placeholder="" />
+              <span class="label__text">ФД</span>
+            </label>
+
+            <label class="label">
+              <input type="text" name="fp" class="input" required placeholder="" />
+              <span class="label__text">ФП</span>
+            </label>
+
+            <label class="label">
+              <input type="date" name="date" class="input" required />
+              <span class="label__text">Дата покупки</span>
+            </label>
+
+            <label class="label">
+              <input type="time" name="time" class="input" required />
+              <span class="label__text">Время покупки</span>
+            </label>
+
+            <label class="label">
+              <input type="number" name="summa" class="input" required placeholder="" />
+              <span class="label__text">Сумма покупки</span>
+            </label>
+
+            <button type="submit" class="button full"><span>Отправить</span></button>
+          </form>
+
+          <button type="button" class="link" data-popup-open="cheque-load">Попробовать снова загрузить фото</button>
+        </div>
+
+        <!--CHEQUE SUCCESS POPUP-->
+        <div class="popup-content" id="cheque-success">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/svg/checkbox-full.svg" alt="" class="popup-image" />
+          <h2 class="title title--h2">Ваш чек зарегистрирован</h2>
+          <p class="subtitle">
+            <b>Следите за&nbsp;его статусом <br />в&nbsp;своём личном кабинете.</b>
+          </p>
+
+          <button type="button" class="button full" data-popup-close><span>Закрыть</span></button>
+        </div>
+
+        <!--CALLBACK POPUP-->
+        <div class="popup-content" id="callback">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="title title--h2 white">Обратная связь</h2>
+
+          <!--callback form-->
+          <script>
+            function onCallbackFormSubmit(e) {
+              e.preventDefault();
+              window.popup.open('callback-success');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onCallbackFormSubmit(event)">
+            <label class="label">
+              <input type="text" name="name" class="input" required />
+              <span class="label__text">Имя</span>
+            </label>
+
+            <label class="label">
+              <input type="tel" name="phone" class="input" required />
+              <span class="label__text">Телефон</span>
+            </label>
+
+            <label class="label">
+              <input type="email" name="email" class="input" required />
+              <span class="label__text">E-mail</span>
+            </label>
+
+            <label class="label">
+              <div class="select">
+                <select name="week" class="input input--select placeholder" required>
+                  <option value="" disabled selected hidden>Тема обращения</option>
+                  <option value="Неделя 1">Тема 1</option>
+                  <option value="Неделя 2">Тема 2</option>
+                  <option value="Неделя 3">Тема 3</option>
+                </select>
+                <span class="input-icon">
+                  <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 9L0.205769 4.3915e-07L15.7942 1.80194e-06L8 9Z" fill="#1E222B" />
+                  </svg>
+                </span>
+              </div>
+            </label>
+
+            <label class="label">
+              <textarea name="message" class="input input--textarea" required></textarea>
+              <span class="label__text">Текст сообщения</span>
+            </label>
+
+            <fieldset>
+              <label class="label">
+                <input type="checkbox" name="agree" class="checkbox" required />
+                <p class="label__text">
+                  <span>
+                    Я даю согласие на обработку моих персональных данных в&nbsp;соответствии с&nbsp;
+                    <a href="/assets/pdf/rules.pdf?v=2" class="gradient-text">Политикой конфиденциальности</a>
+                  </span>
+                </p>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="button full"><span>Отправить</span></button>
+          </form>
+        </div>
+
+        <!--CALLBACK POPUP SUCCESS-->
+        <div class="popup-content" id="callback-success">
+          <button class="popup-close" data-popup-close></button>
+          <div class="red-wrapper">
+            <h2 class="popup-title">Обратная связь</h2>
+
+            <p class="success-text">
+              <strong>Спасибо!</strong>
+              Ваше сообщение отправлено
+            </p>
+
+            <div class="buttons">
+              <button type="button" class="button button--submit full" data-popup-close>Закрыть</button>
+            </div>
+          </div>
+        </div>
+
+        <!--PRIZE ONE-CHANCE POPUP-->
+        <div class="popup-content" id="one-chance">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/1.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">+1 шанс!</h2>
+          <p class="subtitle">Ура! Ваши шансы на победу в&nbsp;главном розыгрыше повысились</p>
+          <div class="buttons">
+            <button type="button" class="button full" data-popup-close><span>Супер!</span></button>
+          </div>
+        </div>
+
+        <!--PRIZE ONE-TRY POPUP-->
+        <div class="popup-content" id="one-try">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/1.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">+1 попытка!</h2>
+          <p class="subtitle">Откройте ещё одно место, чтобы испытать удачу снова ;)</p>
+          <div class="buttons">
+            <button type="button" class="button full" data-popup-close><span>Супер!</span></button>
+          </div>
+        </div>
+
+        <!--PRIZE 55 POINTS POPUP-->
+        <div class="popup-content" id="points">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/2.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">55 баллов!</h2>
+          <p class="subtitle">Активируйте Промокод в&nbsp;приложении «Столото»: <span class="gradient-text">ZV6661488</span></p>
+          <div class="buttons">
+            <a href="#" class="button full" target="_blank"><span>Перейти в приложение</span></a>
+          </div>
+        </div>
+
+        <!--PRIZE STICKER-PACK POPUP-->
+        <div class="popup-content" id="sticker-pack">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/3.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">Пакет билетов <br />«Премиальный»</h2>
+          <p class="subtitle">Ого! Ещё больше возможностей победить — пакет ждёт вас в приложении</p>
+          <div class="buttons">
+            <a hef="#" class="button full"><span>Перейти в приложение</span></a>
+          </div>
+        </div>
+
+        <!--PRIZE COLIZEUM POPUP-->
+        <div class="popup-content" id="colizeum">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/4.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">55 баллов <br />Colizeum</h2>
+          <p class="subtitle">Награда для любителей киберспорта! Обменяйте баллы на&nbsp;игровое&nbsp;время</p>
+          <div class="buttons">
+            <a hef="#" class="button full"><span>Получить</span></a>
+          </div>
+        </div>
+
+        <!--PRIZE KNOWLEDGE-POWER POPUP-->
+        <div class="popup-content" id="knowledge-power">
+          <button class="popup-close" data-popup-close></button>
+          <img src="./assets/img/prizes/5.webp" alt="" class="popup-image" />
+          <h2 class="title title--h2">Знание = сила!</h2>
+          <p class="subtitle">
+            А&nbsp;вы&nbsp;знали, что&nbsp;1\4&nbsp;расходов на&nbsp;Олимпиаду-80&nbsp;была покрыта продажей билетов «Спортлото»? Выигрываете вы,
+            выигрывает спорт!
+          </p>
+          <p class="popup-text">Теперь вы&nbsp;точно знаете, что&nbsp;приз спрятан в&nbsp;другом месте и&nbsp;стали ближе к&nbsp;награде</p>
+          <div class="buttons">
+            <button type="button" hef="#" class="button full" data-popup-close><span>Закрыть</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/dropzone.min.js"></script>
+    <script src="./assets/js/forms.js" type="module"></script>
+    <script src="./assets/js/scripts.js" type="module"></script>
+
+    <script>
+      Dropzone.autoDiscover = false;
+
+      const dz = new Dropzone('#my-dropzone', {
+        url: '#',
+        autoProcessQueue: false,
+        uploadMultiple: false,
+        maxFiles: 1,
+        thumbnailWidth: 315,
+        thumbnailHeight: 200,
+        addRemoveLinks: true,
+        clickable: true,
+        acceptedFiles: 'image/*',
+        dictDefaultMessage: 'Перетащите фото чека или нажмите для выбора',
+        dictRemoveFile: 'Удалить',
+      });
+
+      dz.on('maxfilesexceeded', function (file) {
+        this.removeAllFiles();
+        this.addFile(file);
+      });
+    </script>
+  </body>
+</html>

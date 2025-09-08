@@ -1,0 +1,57 @@
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 200;
+  background: var(--bg);
+  transition: 1s;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  &:before {
+    content: '';
+    width: myclamp(3500px, 3500px, 1440px, 2560px);
+    height: myclamp(3500px, 3500px, 1440px, 2560px);
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    transform: translate(-48%, 50%) rotate(0deg);
+    background: url('../img/svg/rays.svg') no-repeat center center/cover;
+    animation: rays 60s linear infinite;
+    z-index: 1;
+  }
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+    span {
+      transform: scale(0);
+    }
+  }
+  span {
+    width: 30%;
+    height: 170px;
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    transition: 1s;
+    transform: scale(1);
+    z-index: 3;
+    @media (max-width: 1023px) {
+      width: 180px;
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      animation: bounce 3s ease-out infinite;
+    }
+  }
+}

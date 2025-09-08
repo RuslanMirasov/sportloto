@@ -1,0 +1,88 @@
+.footer {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  background: var(--black);
+  font-variation-settings: 'GRAD' 0, 'wdth' 125, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+    'YTFI' 738;
+
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 40px;
+
+    .fooetr__socials {
+      order: 1;
+    }
+
+    .footer__description {
+      order: 2;
+    }
+
+    .footer__qr {
+      order: 3;
+    }
+  }
+}
+
+.footer__socilas {
+  flex-shrink: 0;
+  p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+}
+
+.socials {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
+}
+
+.footer__qr {
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+
+  .text {
+    p {
+      font-size: 10px;
+      line-height: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  }
+
+  .qr-code {
+    width: 112px;
+    height: 112px;
+  }
+}
+
+.footer__description {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+  font-size: 10px;
+  line-height: 1.7;
+  font-weight: 400;
+
+  span {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
