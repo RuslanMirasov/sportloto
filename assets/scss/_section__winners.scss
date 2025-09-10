@@ -1,6 +1,7 @@
 .section--winners {
   padding: 100px 0px;
   min-height: 650px;
+  background: var(--bg-invers);
 
   clip-path: inset(0);
 
@@ -11,13 +12,6 @@
     width: 100svw;
     height: 100%;
     background: url('../img/winners.webp') no-repeat center center/cover;
-  }
-
-  .container {
-    max-width: 868px;
-    @media (max-width: 1023px) {
-      max-width: 450px;
-    }
   }
 
   .input {
@@ -43,8 +37,8 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
-  align-content: flex-end;
+  align-items: center;
+  align-content: center;
   gap: 20px;
   margin: 50px auto 60px auto;
 
@@ -79,43 +73,56 @@
 
 .table {
   position: relative;
-  text-align: left;
+  text-align: right;
   width: 100%;
   border-spacing: 0;
   border: none;
-
+  // table-layout: fixed;
+  thead {
+    color: var(--black);
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 740;
+    font-variation-settings: 'GRAD' 10, 'wdth' 150, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
+  tbody {
+    color: var(--grey);
+    font-weight: 575;
+    font-size: 16px;
+    line-height: 1.2;
+    font-variation-settings: 'GRAD' 15, 'wdth' 126, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
   tr {
+    &:nth-child(2n + 2) {
+      background: var(--grey-dark);
+    }
     th,
     td {
-      padding: 10px 20px;
-      height: 66px;
-      white-space: nowrap;
+      height: 56px;
+      padding: 10px 60px;
+      &:nth-child(2n + 2) {
+        text-align: left;
+      }
       &:first-child {
-        min-width: 120px;
-        padding-left: 0px;
+        border-radius: 50px 0px 0px 50px;
       }
       &:last-child {
-        padding-right: 0px;
-        white-space: wrap;
+        border-radius: 0px 50px 50px 0px;
       }
-      img {
-        width: 85px;
-      }
-    }
-  }
-  th {
-    font-family: var(--roboto);
-    font-size: 20px;
-    line-height: 1;
-    border-bottom: 1px solid var(--white);
-  }
 
-  tbody {
-    td {
-      font-family: var(--roboto);
-      font-size: 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      line-height: 1.1;
+      //столбец 1
+      &:nth-child(1) {
+        max-width: 250px;
+        padding-left: 30px;
+      }
+      &:nth-child(2) {
+        padding-right: 0px;
+      }
+      &:nth-child(3) {
+        padding-left: 0px;
+      }
     }
   }
 }

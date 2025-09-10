@@ -2,6 +2,7 @@
   --roboto: 'Roboto Flex', sans-serif;
 
   --bg: linear-gradient(90deg, #262a33 0%, #333a40 40%, #262b33 100%);
+  --bg-invers: linear-gradient(90deg, #32393f 0%, #1e2127 50%, #32393f 100%);
   --color: #ffffff;
   --white: #ffffff;
   --black: #1e222b;
@@ -32,4 +33,6 @@
 @import 'section__hero';
 @import 'section__stadion';
 @import 'section__winners';
+@import 'section__prizes';
 @import 'dropzone';
+@import 'countdown';

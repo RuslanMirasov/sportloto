@@ -107,7 +107,7 @@
       <div class="section-border section-border--bottom"></div>
 
       <!--STADION-->
-      <section class="section section--stadion" id="stadion">
+      <section class="section section--stadion hidden" id="stadion">
         <div class="container">
           <div class="try">
             <span class="gradient-text">0</span>
@@ -119,7 +119,7 @@
           </div>
 
           <!--Чтобы скрыть блок добавь класс hidden ( class="stadion hidden" )-->
-          <div class="stadion">
+          <div class="stadion hidden">
             <!--Заглушка-->
             <div class="stadion__closed">
               <h2 class="title title--h2 white">
@@ -134,12 +134,20 @@
           </div>
         </div>
       </section>
+      <div class="section-border section-border--top"></div>
+
+      <!--PRIZES-->
+      <section class="section section--prizes">
+        <div class="container">
+          <h2 class="title title--h1">Призы</h2>
+        </div>
+      </section>
 
       <!--WINNERS-->
       <section class="section section--winners">
         <div class="container">
           <div class="winners-filters">
-            <h2 class="title title--h2 yellow">Победители</h2>
+            <h2 class="title title--h1">Победители</h2>
             <script>
               function onSearchFormSubmit(e) {
                 e.preventDefault();
@@ -159,44 +167,74 @@
           </div>
 
           <table class="table">
-            <thead>
+            <thead class="gradient-bg">
               <tr>
-                <th>Дата</th>
-                <th>Имя</th>
-                <th>Контакт</th>
-                <th>Приз</th>
+                <th>Дата розыгрыша</th>
+                <th>Имя участника</th>
+                <th>Телефон</th>
+                <th>Наименование приза</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>дд.мм.гггг</td>
-                <td>Пантелеймон Р.</td>
-                <td>+XXXXXXXX***</td>
-                <td>Баллы Яндекс Плюс</td>
+                <td>ХХ.ХХ.2025</td>
+                <td>Иван</td>
+                <td>+7 999 *** ** 32</td>
+                <td>«Спортмастер» 10 000 ₽</td>
               </tr>
               <tr>
-                <td>дд.мм.гггг</td>
-                <td>Константин Д.</td>
-                <td>+XXXXXXXX***</td>
-                <td>500 ₽ на Ozon</td>
+                <td>ХХ.ХХ.2025</td>
+                <td>Маргарита</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
               </tr>
               <tr>
-                <td>дд.мм.гггг</td>
-                <td>Лера В.</td>
-                <td>+XXXXXXXX***</td>
-                <td>Сертификат Cozy Home</td>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
               </tr>
               <tr>
-                <td>дд.мм.гггг</td>
-                <td>Антонина Н.</td>
-                <td>+XXXXXXXX***</td>
-                <td>Сертификат Cozy Home</td>
+                <td>ХХ.ХХ.2025</td>
+                <td>Иван</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
               </tr>
               <tr>
-                <td>дд.мм.гггг</td>
-                <td>Елизавета Т.</td>
-                <td>+XXXXXXXX***</td>
-                <td>Сертификат Cozy Home</td>
+                <td>ХХ.ХХ.2025</td>
+                <td>Маргарита</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
+              </tr>
+              <tr>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
+              </tr>
+              <tr>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
+              </tr>
+              <tr>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
+              </tr>
+              <tr>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
+              </tr>
+              <tr>
+                <td>ХХ.ХХ.2025</td>
+                <td>Владислав</td>
+                <td>+7 999 *** ** 32</td>
+                <td>ХХХХХХХХХ</td>
               </tr>
             </tbody>
           </table>
@@ -330,49 +368,6 @@
             </fieldset>
             <button type="submit" class="button full"><span>Войти</span></button>
           </form>
-
-          <!-- <script>
-                function onRegisterFormSubmit(e) {
-                  e.preventDefault();
-                  window.popup.open('register-success');
-                }
-              </script>
-              <form action="#" class="form" novalidate onsubmit="onRegisterFormSubmit(event)">
-                <label class="label">
-                  <span class="label__text">Имя</span>
-                  <input type="text" name="name" class="input" required />
-                </label>
-                <label class="label">
-                  <span class="label__text">Фамилия</span>
-                  <input type="text" name="sername" class="input" required />
-                </label>
-                <label class="label">
-                  <span class="label__text">E-mail</span>
-                  <input type="email" name="email" class="input" required />
-                </label>
-                <label class="label">
-                  <span class="label__text">Пароль</span>
-                  <input type="password" name="password" class="input" required placeholder="Придумайте пароль" />
-                </label>
-                <label class="label">
-                  <span class="label__text">Телефон</span>
-                  <input type="tel" name="phone" class="input" required placeholder="+7 ___ ___-__-__" autocomplete="off" />
-                </label>
-                <fieldset>
-                  <label class="label">
-                    <input type="checkbox" name="agree" class="checkbox" required />
-                    <span class="label__text">Я соглашаюсь с&nbsp;<a href="#" class="link">Правилами промоакции</a> </span>
-                  </label>
-                  <label class="label">
-                    <input class="checkbox" required type="checkbox" name="RegistrationInput.PersonalConfirmation" />
-                    <span class="label__text">
-                      Я соглашаюсь с&nbsp;<a href="/assets/pdf/rules.pdf?v=2" class="link">Соглашением на обработку персональных данных</a>
-                    </span>
-                  </label>
-                </fieldset>
-
-                <button type="submit" class="button button--submit full"><span>Зарегистрироваться</span></button>
-              </form> -->
         </div>
 
         <!--CHEQUE POPUP-->
@@ -560,18 +555,10 @@
         <!--CALLBACK POPUP SUCCESS-->
         <div class="popup-content" id="callback-success">
           <button class="popup-close" data-popup-close></button>
-          <div class="red-wrapper">
-            <h2 class="popup-title">Обратная связь</h2>
-
-            <p class="success-text">
-              <strong>Спасибо!</strong>
-              Ваше сообщение отправлено
-            </p>
-
-            <div class="buttons">
-              <button type="button" class="button button--submit full" data-popup-close>Закрыть</button>
-            </div>
-          </div>
+          <img src="./assets/img/svg/checkbox-full.svg" alt="" class="popup-image" />
+          <h2 class="title title--h2">Спасибо!</h2>
+          <p class="subtitle">Ваше сообщение отправлено</p>
+          <button type="button" class="button full" data-popup-close><span>Закрыть</span></button>
         </div>
 
         <!--PRIZE ONE-CHANCE POPUP-->

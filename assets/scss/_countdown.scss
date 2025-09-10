@@ -1,0 +1,50 @@
+.countdown {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  text-align: center;
+
+  ul {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 20px;
+
+    li {
+      div {
+        min-width: 120px;
+        position: relative;
+        background: #fff;
+        transform: skewX(-10deg);
+      }
+
+      span {
+        display: block;
+        position: relative;
+        transform: skewX(10deg);
+        font-weight: 740;
+        font-size: 52px;
+        text-transform: uppercase;
+        color: var(--black);
+        font-variation-settings: 'GRAD' 10, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 24px;
+        letter-spacing: 0.01em;
+        padding-top: 10px;
+      }
+    }
+  }
+}

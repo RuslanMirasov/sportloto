@@ -86,7 +86,8 @@ a {
 }
 
 .main {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 1;
   flex: 1;
@@ -162,5 +163,9 @@ a {
     background: url('../img/svg/bb.svg') no-repeat center center;
     background-size: 100% 100%;
     margin-top: -240px;
+  }
+  &.section-border--top {
+    background: url('../img/svg/bt.svg') no-repeat center center;
+    background-size: 100% 100%;
   }
 }
