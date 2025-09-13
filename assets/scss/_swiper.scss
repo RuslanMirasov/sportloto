@@ -19,28 +19,27 @@
 .swiper-arrow {
   display: flex;
   position: absolute;
-  width: 42px;
-  height: 42px;
-  border: none;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
   opacity: 1;
   transition: opacity 0.3s;
   z-index: 3;
-  margin-top: -60px;
+  border: none;
+
+  width: 60px;
+  height: 30px;
+  margin-top: -15px;
 
   top: 50%;
   &[data-arrow-prev] {
-    background: url('../img/svg/arrow-prev.svg') no-repeat center center;
-    background-size: auto 100%;
-    right: calc(100% + 14px);
+    background: url('../img/svg/arrow-prev.svg') no-repeat center center/cover;
+    right: 100%;
   }
   &[data-arrow-next] {
     background: url('../img/svg/arrow-next.svg') no-repeat center center;
     background-size: auto 100%;
-    left: calc(100% + 14px);
+    left: 100%;
   }
   &.swiper-button-disabled {
     opacity: 0.3;

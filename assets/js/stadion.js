@@ -3,7 +3,7 @@ const handleSeatClick = e => {
   if (!seat) return;
 
   // НОМЕР МЕСТА НА КОТОРОЕ КЛИКНУЛИ
-  const number = seat.dataset.seatNumber;
+  const seatNumber = seat.dataset.seatNumber;
 
   // ТУТ ОТПРАВЛЯЕМ НОМЕР К API, ПОКА ИДЁТ ЗАПРОС ПОКАЗЫВАЕМ КРУТИЛКУ НА КРЕСЛЕ
   seat.classList.add('loading');
@@ -12,13 +12,14 @@ const handleSeatClick = e => {
   // 1) Убираем индикатор загрузки
   // 2) Помечаем номер как выбранный
   // 3) записываем номер в LocalStorage (Чтоб больше не кликали)
-  //4) Показываем всплывашку с призом. ID-шки призовых всплывашек: ( one-chance / one-try / points / sticker-pack / colizeum / knowledge-power )
+  // 4) Показываем всплывашку с призом. ID-шки призовых всплывашек:
+  //   (one-chance / one-try / stoloto / sticker-pack / colizeum / knowledge-power / certificate / headphones / iphone)
   // P.S - setTimeout поставил временно чтоб имитировать задерку запроса, его убрать нужно.
   setTimeout(() => {
     seat.classList.remove('loading');
     seat.classList.add('checked');
-    seatsInStorage(number);
-    window.popup.open('points');
+    seatsInStorage(seatNumber);
+    window.popup.open('iphone');
   }, 600);
 };
 
@@ -41,18 +42,6 @@ export const initStadion = () => {
     ['left', 'left', 'left', 'left', 'center', 'center', 'center', 'center', 'center', 'right', 'right', 'right'],
     ['left', 'left', 'left', 'center', 'center', 'center', 'center', 'center', 'right', 'right', 'right'],
     ['left', 'left', 'left', 'center', 'center', 'center', 'center', 'right', 'right', 'right', 'right'],
-  ];
-
-  const SEATS_MOBIL = [
-    ['left', 'left', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right', 'right'],
-    ['left', 'left', 'left', 'center', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right', 'right'],
-    ['left', 'left', 'center', 'center', 'right'],
   ];
 
   let seatNumber = 0;

@@ -1,7 +1,6 @@
 import { registerNamedSwiper } from './goToSlide.js';
 
 const sliders = document.querySelectorAll('[data-slider]');
-
 const toBool = s => String(s).toLowerCase() === 'true';
 
 export const initSliders = () => {

@@ -1,0 +1,106 @@
+.lk {
+  margin-top: 130px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 20px;
+
+  .title {
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 38px;
+    padding-left: 24px;
+  }
+}
+
+.lk__item {
+  flex-shrink: 0;
+  &:last-child {
+    flex: 1;
+  }
+}
+
+.kabinet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 454px;
+  padding: 30px 24px;
+  border-radius: 20px;
+  background: var(--black);
+  gap: 21px;
+}
+
+.kabinet__counters {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 12px;
+
+  li {
+    width: calc((100% - 24px) / 3);
+    text-align: center;
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.2;
+
+    span {
+      display: block;
+      background: rgba(242, 242, 242, 0.102);
+      border-radius: 10px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #bd7e3a;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.user {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 38px;
+}
+
+.user__info {
+  color: var(--grey);
+  strong {
+    display: block;
+    font-weight: 740;
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-variation-settings: 'GRAD' 10, 'wdth' 150, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
+
+  p,
+  a {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.5;
+    padding-top: 2px;
+    transition: 0.3s;
+  }
+
+  a {
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

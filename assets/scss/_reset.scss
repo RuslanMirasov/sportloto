@@ -165,7 +165,12 @@ a {
     margin-top: -240px;
   }
   &.section-border--top {
+    height: 350px;
     background: url('../img/svg/bt.svg') no-repeat center center;
     background-size: 100% 100%;
+    margin-bottom: -290px;
+    &.no-margin {
+      margin-bottom: -166px;
+    }
   }
 }
