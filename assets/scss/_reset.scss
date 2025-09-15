@@ -24,7 +24,6 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  overscroll-behavior: none;
   -webkit-overflow-scrolling: auto;
   position: relative;
   width: 100%;
@@ -40,11 +39,6 @@ body {
   font-style: normal;
   font-variation-settings: 'slnt' 0, 'wdth' 100, 'GRAD' 0, 'XOPQ' 96, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514,
     'YTUC' 712;
-}
-
-html,
-body {
-  overscroll-behavior: none;
 }
 
 img {
@@ -171,6 +165,19 @@ a {
     margin-bottom: -290px;
     &.no-margin {
       margin-bottom: -166px;
+    }
+  }
+}
+
+@media (max-width: 1439px) {
+  .section-border {
+    height: 250px;
+    &.section-border--bottom {
+      margin-top: -200px;
+    }
+    &.section-border--top {
+      height: 320px;
+      margin-bottom: -270px;
     }
   }
 }

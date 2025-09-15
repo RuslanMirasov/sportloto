@@ -30,10 +30,10 @@
 
         <nav class="navigation">
           <ul class="menu">
-            <li><a href="./" class="menu__link">Главная</a></li>
-            <li><a href="./" class="menu__link">Правила</a></li>
-            <li><a href="./" class="menu__link">Призы</a></li>
-            <li><a href="./" class="menu__link">Победители</a></li>
+            <li><a href="./#hero" class="menu__link" data-scrollto>Главная</a></li>
+            <li><a href="./#instructions" class="menu__link" data-scrollto>Правила</a></li>
+            <li><a href="./#prizes" class="menu__link" data-scrollto="-30">Призы</a></li>
+            <li><a href="./#winners" class="menu__link" data-scrollto="0">Победители</a></li>
             <li><button type="button" class="menu__link" data-popup-open="callback">Контакты</button></li>
             <li class="header__buttons">
               <button class="button" data-popup-open="cheque"><span>Загрузить чек</span></button>
@@ -50,7 +50,7 @@
 
     <main class="main">
       <!--HERO-->
-      <section class="section section--hero">
+      <section class="section section--hero" id="hero">
         <div class="hero-background-images">
           <img src="./assets/img/hero/lines.webp" alt="" class="lines" />
           <img src="./assets/img/hero/stadium.webp" alt="" class="stadium" />
@@ -63,7 +63,7 @@
           <div class="hero-title">
             <img src="./assets/img/hero/madal.webp" alt="" class="madal" />
             <h1 class="title title--h1 ta--c">
-              Найдите своё место <br />
+              Найдите своё&nbsp;место <br />
               на Стадионе Удачи!
             </h1>
 
@@ -72,33 +72,35 @@
             </a>
           </div>
 
-          <ul class="instructions">
-            <li>
-              <img src="./assets/img/hero/info1.webp" alt="" />
-              <p>
-                <b class="gradient-text">Купите</b> пакет билетов «<span class="gradient-text">Спортлото МИНИ</span>» <br />
-                или&nbsp;«<span class="gradient-text">Спортлото МАКС</span>»
-              </p>
-            </li>
-            <li>
-              <img src="./assets/img/hero/info2.webp" alt="" />
-              <p>
-                <b class="gradient-text">Зарегистрируйте чек,</b> <br />
-                чтобы стать участником еженедельного и&nbsp;главного розыгрышей
-              </p>
-            </li>
-            <li>
-              <img src="./assets/img/hero/info3.webp" alt="" />
-              <p>
-                <b class="gradient-text">Испытайте удачу</b> <br />на&nbsp;стадионе — открывайте места за&nbsp;каждую покупку и&nbsp;ищите
-                моментальные призы
-              </p>
-            </li>
-            <li>
-              <img src="./assets/img/hero/info4.webp" alt="" />
-              <p><b class="gradient-text">Больше покупок —</b> <br />больше шансов на&nbsp;победу</p>
-            </li>
-          </ul>
+          <div class="instructionsWrapper" id="instructions">
+            <ul class="instructions">
+              <li>
+                <img src="./assets/img/hero/info1.webp" alt="" />
+                <p>
+                  <b class="gradient-text">Купите</b> пакет билетов «<span class="gradient-text">Спортлото МИНИ</span>» <br />
+                  или&nbsp;«<span class="gradient-text">Спортлото МАКС</span>»
+                </p>
+              </li>
+              <li>
+                <img src="./assets/img/hero/info2.webp" alt="" />
+                <p>
+                  <b class="gradient-text">Зарегистрируйте чек,</b> <br />
+                  чтобы стать участником еженедельного и&nbsp;главного розыгрышей
+                </p>
+              </li>
+              <li>
+                <img src="./assets/img/hero/info3.webp" alt="" />
+                <p>
+                  <b class="gradient-text">Испытайте удачу</b> <br />на&nbsp;стадионе — открывайте места за&nbsp;каждую покупку и&nbsp;ищите
+                  моментальные призы
+                </p>
+              </li>
+              <li>
+                <img src="./assets/img/hero/info4.webp" alt="" />
+                <p><b class="gradient-text">Больше покупок —</b> <br />больше шансов на&nbsp;победу</p>
+              </li>
+            </ul>
+          </div>
 
           <div class="buttons ta--c">
             <a href="#" class="button"><span>Полные правила</span></a>
@@ -138,7 +140,7 @@
       <div class="section-border section-border--top"></div>
 
       <!--PRIZES-->
-      <section class="section section--prizes">
+      <section class="section section--prizes" id="prizes">
         <div class="container">
           <h2 class="title title--h1">Призы</h2>
 
@@ -226,7 +228,7 @@
       </section>
 
       <!--WINNERS-->
-      <section class="section section--winners">
+      <section class="section section--winners" id="winners">
         <div class="container">
           <div class="winners-filters">
             <h2 class="title title--h1">Победители</h2>
@@ -473,7 +475,7 @@
             <span>Срок регистрации чеков: с&nbsp;19.09.2025 по&nbsp;16.10.2025</span>
             Организатор акции: ООО “Хьюман тач”. Подробная информация об&nbsp;Организаторе, условия участия, порядок регистрации чеков, сроки
             и&nbsp;правила проведения розыгрышей, перечень призов, а&nbsp;также порядок определения и&nbsp;объявления победителей - в&nbsp;Правилах
-            акции, размещенных на&nbsp;сайте sportloto55.stoloto.ru
+            акции, размещенных на&nbsp;сайте <a href="https://sportloto55.stoloto.ru/" target="_blank">sportloto55.stoloto.ru</a>
           </p>
           <p>
             «Спортлото 55&nbsp;лет» относится к&nbsp;первому тиражу советской одноимённой игры «Спортлото» по&nbsp;формуле «6&nbsp;из&nbsp;49»,

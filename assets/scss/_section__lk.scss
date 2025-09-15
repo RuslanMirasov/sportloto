@@ -104,3 +104,64 @@
     }
   }
 }
+
+.table.table--history {
+  text-align: center;
+
+  thead {
+    font-size: 14px;
+    font-variation-settings: 'GRAD' 10, 'wdth' 150, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
+  tbody {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    font-variation-settings: 'GRAD' 10, 'wdth' 150, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+      'YTFI' 738;
+  }
+  tr {
+    justify-content: space-between;
+    gap: 16px;
+    th,
+    td {
+      padding: 4px 0;
+      &:nth-child(2n + 2) {
+        text-align: center;
+      }
+
+      //столбец 1
+      &:nth-child(1) {
+        width: 112px;
+        padding-left: 8px;
+      }
+
+      //столбец 2
+      &:nth-child(2) {
+        width: 86px;
+      }
+
+      //столбец 3
+      &:nth-child(3) {
+        width: 100px;
+      }
+
+      //столбец 4
+      &:nth-child(4) {
+        width: 65px;
+        padding-right: 0px;
+      }
+
+      //столбец 5
+      &:nth-child(5) {
+        width: 110px;
+      }
+
+      //столбец 6
+      &:nth-child(6) {
+        width: 110px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

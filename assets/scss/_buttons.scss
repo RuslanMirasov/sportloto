@@ -78,11 +78,23 @@
       }
     }
 
-    &.button--white {
+    &.button--white,
+    &.button--black {
       &:hover {
         &:before,
         &:after {
           transform: translate(-50%, 0%);
+        }
+      }
+    }
+    &.button--black {
+      &:hover {
+        span {
+          background: none;
+          -webkit-background-clip: initial;
+          -webkit-text-fill-color: initial;
+          background-clip: initial;
+          color: var(--black);
         }
       }
     }
@@ -114,6 +126,27 @@
 
   &.full {
     width: 100%;
+  }
+
+  &.button--black {
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 26px;
+    padding: 6px 20px;
+    background: rgb(46, 50, 58, 0.8);
+    border-bottom: 1px solid #3e464b;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    &:before {
+      transform: translate(-154%, 0%);
+    }
+
+    &:after {
+      transform: translate(54%, 0%);
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 
   &.button--social {

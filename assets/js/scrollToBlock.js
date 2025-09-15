@@ -14,8 +14,11 @@ export const scrollToBlock = (selector, offset = 0) => {
 };
 
 const handleScrollLinkClick = e => {
-  e.preventDefault();
   const target = e.target.href.split('#')[1];
+  const element = document.querySelector(`#${target}`);
+  if (!element) return;
+
+  e.preventDefault();
   const offset = e.target.dataset.scrollto || -50;
 
   // closeMenu();
