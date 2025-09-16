@@ -5,6 +5,10 @@ export const popup = {
   _isOpening: false,
   _isAnimating: false,
 
+  // Очереди обработчиков событий жизненного цикла попапа
+  _beforeOpenHandlers: [],
+  _afterCloseHandlers: [],
+
   init() {
     this._backdrop = document.querySelector('[data-backdrop]');
     this._popup = this._backdrop?.querySelector('[data-popup]');
@@ -17,6 +21,44 @@ export const popup = {
     this._bindCloseEvents();
   },
 
+  onBeforeOpen(callback) {
+    if (typeof callback === 'function') {
+      this._beforeOpenHandlers.push(callback);
+    }
+  },
+
+  onAfterClose(callback) {
+    if (typeof callback === 'function') {
+      this._afterCloseHandlers.push(callback);
+    }
+  },
+
+  _emitBeforeOpen(id, triggerElement) {
+    const event = new CustomEvent('popup:beforeOpen', {
+      detail: { id, triggerElement },
+    });
+    this._beforeOpenHandlers.forEach(fn => {
+      try {
+        fn(event);
+      } catch (_) {
+        /* noop */
+      }
+    });
+  },
+
+  _emitAfterClose(id) {
+    const event = new CustomEvent('popup:afterClose', {
+      detail: { id },
+    });
+    this._afterCloseHandlers.forEach(fn => {
+      try {
+        fn(event);
+      } catch (_) {
+        /* noop */
+      }
+    });
+  },
+
   async open(id) {
     if (this._isOpening || this._isAnimating) return;
     this._isOpening = true;
@@ -27,6 +69,9 @@ export const popup = {
       this._isOpening = false;
       return;
     }
+
+    // Сообщаем подписчикам о скором открытии нужного контента
+    this._emitBeforeOpen(id);
 
     const currentContent = this._popup.querySelector('.popup-content[style*="display: flex"]');
 
@@ -52,10 +97,16 @@ export const popup = {
 
     this._popup.classList.remove('visible');
     this._backdrop.classList.remove('active');
+    document.body.classList.remove('locked');
 
     await this._waitForTransition(this._backdrop);
     this._unlockScroll();
     this._hideAllContent();
+
+    // Сообщаем подписчикам о закрытии
+    try {
+      this._emitAfterClose();
+    } catch (_) {}
 
     this._isOpening = false;
   },
@@ -152,6 +203,7 @@ export const popup = {
     const fixedBackgrounds = document.querySelectorAll('[data-fix-bg]');
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
+    document.body.classList.add('locked');
     document.body.style.overflow = 'hidden';
     document.body.style.width = `calc(100% - ${scrollbarWidth}px)`;
 

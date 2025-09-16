@@ -14,7 +14,10 @@ fixHeaderOnScroll();
 initScrollToBlock();
 initAccordeons();
 initStadion();
-initCountdown('19 сентября 2025');
+// Инициализируем таймер только там, где есть элементы счётчика
+if (document.querySelector('[data-days], [data-hours], [data-minutes], [data-seconds]')) {
+  initCountdown('19 сентября 2025', '12:00');
+}
 setTimeout(() => {
   hidePreloader();
 }, 300);

@@ -100,27 +100,14 @@ a {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0px 20px;
+  @media (max-width: 767px) {
+    padding: 0px 15px;
+  }
 }
 
 .link {
   text-decoration: underline;
   color: inherit;
-}
-
-.title {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-
-  &.white {
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
-    color: var(--white);
-  }
 }
 
 .gradient-text,
@@ -181,3 +168,46 @@ a {
     }
   }
 }
+
+@media (max-width: 1279px) {
+  .section-border {
+    height: 200px;
+    &.section-border--bottom {
+      margin-top: -160px;
+    }
+    &.section-border--top {
+      height: 250px;
+      margin-bottom: -210px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-border {
+    height: 120px;
+    &.section-border--bottom {
+      margin-top: -100px;
+    }
+    &.section-border--top {
+      height: 150px;
+      margin-bottom: -130px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .section-border {
+    height: 80px;
+    &.section-border--bottom {
+      margin-top: -100px;
+    }
+    &.section-border--top {
+      height: 100px;
+      margin-bottom: -90px;
+    }
+  }
+}
+
+// @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+// правила для IOS на мобилках
+// }

@@ -1,4 +1,4 @@
-export const initCountdown = date => {
+export const initCountdown = (date, time) => {
   if (!date) return;
 
   const MONTHS = {
@@ -25,10 +25,20 @@ export const initCountdown = date => {
     return;
   }
 
-  const target = new Date(+m[3], MONTHS[m[2]], +m[1], 0, 0, 0, 0);
+  // --- время "HH:MM" ---
+  let hh = 0,
+    mm = 0;
+  if (typeof time === 'string' && time.trim()) {
+    const t = time.trim().match(/^(\d{1,2}):(\d{2})$/);
+    if (t && +t[1] <= 23 && +t[2] <= 59) {
+      hh = +t[1];
+      mm = +t[2];
+    } else console.warn('Неверный формат времени! Ожидается "HH:MM", например "15:30".');
+  }
+
+  const target = new Date(+m[3], MONTHS[m[2]], +m[1], hh, mm, 0, 0);
   const pad2 = n => String(n).padStart(2, '0');
 
-  // присутствующие единицы
   const UNITS = [
     { key: 'days', sec: 86400, el: document.querySelector('[data-days]') },
     { key: 'hours', sec: 3600, el: document.querySelector('[data-hours]') },
@@ -41,32 +51,34 @@ export const initCountdown = date => {
     return;
   }
 
-  // модуль для «младших» единиц
-  const BASE = { hours: 24, minutes: 60, seconds: 60 };
+  // контейнер отсчитываемого блока
+  const COUNTDOWN_ROOT = UNITS[0].el.closest('[data-countdown]') || document.querySelector('[data-countdown]');
 
+  const BASE = { hours: 24, minutes: 60, seconds: 60 };
   let timerId;
+
+  function finish() {
+    clearInterval(timerId);
+    // обновим на "00" для избежания мерцаний
+    UNITS.forEach(u => (u.el.textContent = '00'));
+    // удалим блок счётчика
+    if (COUNTDOWN_ROOT) COUNTDOWN_ROOT.remove();
+  }
 
   function tick() {
     const diff = target.getTime() - Date.now();
+    if (diff <= 0) return finish();
 
-    if (diff <= 0) {
-      UNITS.forEach(u => (u.el.textContent = '00'));
-      clearInterval(timerId);
-      return;
-    }
+    let total = Math.floor(diff / 1000);
 
-    let total = Math.floor(diff / 1000); // всего секунд
-
-    // 1) первая (крупнейшая) — тотальная
     const first = UNITS[0];
     const firstVal = Math.floor(total / first.sec);
     first.el.textContent = pad2(firstVal);
     total -= firstVal * first.sec;
 
-    // 2) остальные — в своём модуле (независимо от пропущенных уровней)
     for (let i = 1; i < UNITS.length; i++) {
       const u = UNITS[i];
-      const base = BASE[u.key] ?? Infinity; // для days базы нет
+      const base = BASE[u.key] ?? Infinity;
       const raw = Math.floor(total / u.sec);
       const val = isFinite(base) ? raw % base : raw;
       u.el.textContent = pad2(val);

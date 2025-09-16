@@ -29,19 +29,21 @@
         </a>
 
         <nav class="navigation">
+          <div class="animated-ring"></div>
           <ul class="menu">
             <li><a href="./#hero" class="menu__link" data-scrollto>Главная</a></li>
-            <li><a href="./#instructions" class="menu__link" data-scrollto>Правила</a></li>
+            <li><a href="./#instructions" class="menu__link" data-scrollto="50">Правила</a></li>
             <li><a href="./#prizes" class="menu__link" data-scrollto="-30">Призы</a></li>
             <li><a href="./#winners" class="menu__link" data-scrollto="0">Победители</a></li>
             <li><button type="button" class="menu__link" data-popup-open="callback">Контакты</button></li>
             <li class="header__buttons">
               <button class="button" data-popup-open="cheque"><span>Загрузить чек</span></button>
-              <button class="button button--white" data-popup-open="login"><span>Войти</span></button>
+              <a href="./lk.html" class="button button--white"><span>Профиль</span></a>
             </li>
           </ul>
         </nav>
 
+        <button class="button button--mobil" data-popup-open="cheque"><span>Загрузить чек</span></button>
         <button class="burger">
           <span>Меню бургер</span>
         </button>
@@ -51,6 +53,7 @@
     <main class="main">
       <!--HERO-->
       <section class="section section--hero" id="hero">
+        <div class="animated-ring"></div>
         <div class="hero-background-images">
           <img src="./assets/img/hero/lines.webp" alt="" class="lines" />
           <img src="./assets/img/hero/stadium.webp" alt="" class="stadium" />
@@ -77,8 +80,8 @@
               <li>
                 <img src="./assets/img/hero/info1.webp" alt="" />
                 <p>
-                  <b class="gradient-text">Купите</b> пакет билетов «<span class="gradient-text">Спортлото МИНИ</span>» <br />
-                  или&nbsp;«<span class="gradient-text">Спортлото МАКС</span>»
+                  <b class="gradient-text">Купите</b> пакет билетов «<b class="gradient-text">Спортлото МИНИ</b>» <br />
+                  или&nbsp;«<b class="gradient-text">Спортлото МАКС</b>»
                 </p>
               </li>
               <li>
@@ -113,27 +116,29 @@
       <!--Чтобы скрыть блок добавь класс "hidden" ( class="section section--stadion hidden" )-->
       <section class="section section--stadion" id="stadion">
         <div class="container">
-          <div class="try">
-            <span class="gradient-text">0</span>
-          </div>
-
           <div class="title-wrapper">
             <h2 class="title title--h2 ta--c white">Выберите место <br />и&nbsp;выиграйте приз</h2>
             <p class="subtitle">Дополнительное описание</p>
+          </div>
+
+          <div class="try">
+            <span class="gradient-text">0</span>
           </div>
 
           <div class="stadion">
             <!--Заглушка-->
             <div class="stadion__closed">
               <h2 class="title title--h2 white">
-                Для участия в акции<br />
+                Для участия в акции <br />
                 необходимо зарегистрироваться
               </h2>
               <button class="button" data-popup-open="register"><span>Зарегистрироваться</span></button>
             </div>
 
             <!--Выбор номера-->
-            <div class="stadion__seats" data-stadion></div>
+            <div class="horisontal-scroll-area" data-stadion-scroll-area>
+              <div class="stadion__seats" data-stadion></div>
+            </div>
           </div>
         </div>
       </section>
@@ -343,7 +348,7 @@
       </section>
       <div class="border border-bottom"></div>
 
-      <!--FAQ-->
+      <!--SECTION FAQ-->
       <section class="section section--faq">
         <div class="container">
           <div class="title-wrapper">

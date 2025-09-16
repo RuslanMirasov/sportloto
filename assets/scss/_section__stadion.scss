@@ -21,6 +21,14 @@
     position: absolute;
     right: 0px;
     top: 0px;
+    @media (max-width: 1279px) {
+      right: 20px;
+    }
+    @media (max-width: 767px) {
+      position: relative;
+      right: 0px;
+      margin: 24px auto 16px;
+    }
   }
 
   &.hidden {
@@ -37,17 +45,40 @@
       display: flex;
     }
   }
+
+  @media (max-width: 1020px) {
+    .container {
+      padding: 0px 15px;
+    }
+  }
 }
 
 .stadion {
   display: flex;
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: auto;
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-height: 490px;
+
+  .horisontal-scroll-area {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    width: 980px;
+    height: 490px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-bottom: -16px;
+  }
+
+  @media (max-width: 1020px) {
+    max-width: calc(100% + 30px);
+    width: calc(100% + 30px);
+    left: -15px;
+  }
 }
 
 .stadion__closed {
@@ -67,7 +98,10 @@
 .stadion__seats {
   display: flex;
   position: relative;
-  width: 100%;
+  overflow: hidden;
+  width: 980px;
+  padding: 100px 0px;
+  margin-top: -60px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -127,11 +161,15 @@
     width: 54px;
     height: 54px;
     margin: 12px auto;
+    text-align: center;
     font-size: 42px;
     font-weight: 700;
     cursor: pointer;
     font-variation-settings: 'GRAD' -20, 'wdth' 100, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
       'YTFI' 738;
+    @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+      padding-top: 26px;
+    }
     &.icon {
       display: none;
       background: url('../img/svg/checkbox.svg') no-repeat center center;
@@ -164,6 +202,9 @@
   &.loading {
     .icon {
       background: none;
+      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+        padding-bottom: 26px;
+      }
       &:before {
         content: '';
         display: block;

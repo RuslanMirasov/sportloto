@@ -10,18 +10,43 @@
 }
 
 .title {
-  display: inline-block;
+  display: block;
+  position: relative;
   width: auto;
   text-transform: uppercase;
   font-variation-settings: 'wght' 740, 'wdth' 150, 'GRAD' 10, 'slnt' 0, 'opsz' 49;
 
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  &.white {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+  }
+
   &.title--h1 {
     font-size: 52px;
     line-height: 1.2;
+    @media (max-width: 767px) {
+      font-size: 32px;
+      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+        padding-top: 2%;
+      }
+    }
   }
 
   &.title--h2 {
     font-size: 28px;
+    @media (max-width: 767px) {
+      font-size: 22px;
+      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+        padding-top: 2%;
+      }
+    }
   }
 
   &.title--h3 {

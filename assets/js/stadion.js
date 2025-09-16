@@ -1,3 +1,5 @@
+import { debounce } from './helpers.js';
+
 const handleSeatClick = e => {
   const seat = e.target.closest('.seat');
   if (!seat) return;
@@ -19,7 +21,7 @@ const handleSeatClick = e => {
     seat.classList.remove('loading');
     seat.classList.add('checked');
     seatsInStorage(seatNumber);
-    window.popup.open('iphone');
+    window.popup.open('one-try');
   }, 600);
 };
 
@@ -46,9 +48,18 @@ export const initStadion = () => {
 
   let seatNumber = 0;
 
+  const centerScroll = (el, behavior = 'instant') => {
+    if (!el) return;
+    const left = Math.max(0, (el.scrollWidth - el.clientWidth) / 2);
+    el.scrollTo({ left, behavior });
+  };
+
   const renderStadion = seats => {
     const stadionEl = document.querySelector('[data-stadion]');
-    if (!stadionEl) return;
+    const scrollArea = document.querySelector('[data-stadion-scroll-area]');
+    if (!stadionEl || !scrollArea) return;
+
+    seatNumber = 0;
 
     const checkedSeats = seatsInStorage();
     const centerRowIndex = Math.floor((seats.length - 1) / 2);
@@ -90,6 +101,20 @@ export const initStadion = () => {
 
     stadionEl.innerHTML = html;
     stadionEl.addEventListener('click', handleSeatClick);
+    requestAnimationFrame(() => centerScroll(scrollArea, 'instant'));
+    const onLoadOnce = () => {
+      centerScroll(scrollArea, 'instant');
+      window.removeEventListener('load', onLoadOnce);
+    };
+    window.addEventListener('load', onLoadOnce);
+    let prevWidth = window.innerWidth;
+    const onResize = debounce(() => {
+      if (window.innerWidth !== prevWidth) {
+        prevWidth = window.innerWidth;
+        centerScroll(scrollArea, 'instant');
+      }
+    }, 150);
+    window.addEventListener('resize', onResize, { passive: true });
   };
 
   renderStadion(SEATS);
