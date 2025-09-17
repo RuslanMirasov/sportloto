@@ -5,25 +5,6 @@
   overflow: visible;
   flex: 1;
 
-  @media (max-width: 1023px) {
-    .title.title--h1 {
-      max-width: 500px;
-      margin: 0 auto;
-      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
-        padding-top: 4px;
-      }
-    }
-    .title.title--h3 {
-      font-size: 16px;
-      max-width: 330px;
-    }
-  }
-  @media (max-width: 767px) {
-    .title.title--h1 {
-      font-size: 32px;
-    }
-  }
-
   &.section--countdown {
     @media (max-width: 1920px) {
       min-height: 100vh;
@@ -118,6 +99,35 @@
       background: url('../img/svg/rays.svg') no-repeat center center/cover;
       animation: rays 60s linear infinite;
       z-index: 1;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .title.title--h1 {
+      max-width: 500px;
+      margin: 0 auto;
+      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+        padding-top: 4px;
+      }
+    }
+    .title.title--h3 {
+      font-size: 16px;
+      max-width: 330px;
+    }
+
+    &:not(.section--countdown) {
+      .animated-ring {
+        &:before {
+          bottom: 50%;
+          animation: rays_in_mobil 60s linear infinite;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .title.title--h1 {
+      font-size: 32px;
     }
   }
 }
@@ -307,11 +317,13 @@
       min-height: 20px;
     }
   }
+
   .event-date {
     top: 30px;
     left: 15px;
     padding: 10px 22px 8px 22px;
   }
+
   .hero-background-images {
     height: 850px;
     transform: translate(-50%, -100px);
@@ -338,8 +350,33 @@
       }
     }
   }
+
   .hero-title .madal {
     width: 320px;
+  }
+
+  .instructions {
+    gap: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 160px;
+    margin-top: -100px;
+    margin-bottom: 100px;
+    max-width: 900px;
+
+    li {
+      width: 260px;
+      font-size: 18px;
+
+      &:first-child,
+      &:last-child {
+        top: 0px;
+      }
+
+      &:nth-child(2n + 2) {
+        top: 50px;
+      }
+    }
   }
 }
 
@@ -372,11 +409,88 @@
       &.coin {
         width: 150px;
         right: 20px;
-        bottom: -50px;
+        bottom: -20px;
       }
     }
   }
+
   .hero-title .madal {
     margin: 0px auto -50px auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .event-date {
+    max-width: 254px;
+    position: relative;
+    left: 0px;
+    top: 70px;
+    padding: 14px 32px 10px 32px;
+    margin: 0 auto;
+    span {
+      font-size: 16px;
+    }
+  }
+
+  .hero-background-images img {
+    &.lines {
+      margin-top: -70px;
+    }
+    &.stadium {
+      width: 120px;
+      right: auto;
+      top: auto;
+      bottom: 40px;
+    }
+    &.coin-left {
+      width: 90px;
+      left: 10px;
+      top: 110px;
+    }
+    &.coin {
+      display: none;
+    }
+    &.gift {
+      width: 120px;
+      left: auto;
+      right: 0px;
+      bottom: 280px;
+    }
+  }
+
+  .instructions {
+    gap: 50px;
+    padding-top: 160px;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    max-width: 900px;
+
+    li {
+      width: 100%;
+      font-size: 18px;
+
+      &:before {
+        left: 50%;
+        transform: translate(-100px, 0px);
+      }
+
+      img {
+        margin: 0px auto 16px auto;
+        width: auto;
+        max-height: 152px;
+      }
+      &:last-child {
+        img {
+          max-height: 172px;
+        }
+      }
+      &:nth-child(2n + 2) {
+        top: 0px;
+      }
+    }
+  }
+
+  .section--hero .buttons {
+    margin-bottom: 20px;
   }
 }

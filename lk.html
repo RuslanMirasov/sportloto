@@ -204,30 +204,31 @@
       <div class="section-border section-border--bottom"></div>
 
       <!--STADION-->
-      <!--Чтобы скрыть блок добавь класс "hidden" ( class="section section--stadion hidden" )-->
       <section class="section section--stadion" id="stadion">
         <div class="container">
-          <div class="try">
-            <span class="gradient-text">0</span>
-          </div>
-
           <div class="title-wrapper">
             <h2 class="title title--h2 ta--c white">Выберите место <br />и&nbsp;выиграйте приз</h2>
             <p class="subtitle">Дополнительное описание</p>
+          </div>
+
+          <div class="try">
+            <span class="gradient-text">0</span>
           </div>
 
           <div class="stadion">
             <!--Заглушка-->
             <div class="stadion__closed">
               <h2 class="title title--h2 white">
-                Для участия в акции<br />
+                Для участия в акции <br />
                 необходимо зарегистрироваться
               </h2>
               <button class="button" data-popup-open="register"><span>Зарегистрироваться</span></button>
             </div>
 
             <!--Выбор номера-->
-            <div class="stadion__seats" data-stadion></div>
+            <div class="horisontal-scroll-area" data-stadion-scroll-area>
+              <div class="stadion__seats" data-stadion></div>
+            </div>
           </div>
         </div>
       </section>

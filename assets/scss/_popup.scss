@@ -269,13 +269,34 @@ $popup_transition: 0.5s;
   }
 
   .promokod {
-    display: block;
     font-size: 22px;
     padding: 14px;
     border-radius: 10px;
     @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
       padding-top: 20px;
       padding-bottom: 10px;
+    }
+  }
+
+  .register-check-list {
+    > li {
+      padding-left: 34px;
+
+      span {
+        margin-top: 12px;
+      }
+
+      &::before {
+        display: block;
+        padding-top: 2px;
+        top: 1px;
+        font-size: 18px;
+      }
+
+      ul {
+        gap: 5px;
+        margin: 5px 0px;
+      }
     }
   }
 }

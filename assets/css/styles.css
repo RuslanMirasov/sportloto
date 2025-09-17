@@ -74,6 +74,22 @@
     transform: translate(-55%, 55%) rotate(360deg);
   }
 }
+@-webkit-keyframes rays_in_mobil {
+  0% {
+    transform: translate(-60%, 50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-60%, 50%) rotate(360deg);
+  }
+}
+@keyframes rays_in_mobil {
+  0% {
+    transform: translate(-60%, 50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-60%, 50%) rotate(360deg);
+  }
+}
 @-webkit-keyframes rotateleft {
   0% {
     transform: rotate(0deg);
@@ -2092,7 +2108,6 @@ select.open + .input-icon {
     font-size: 12px;
   }
   .promokod {
-    display: block;
     font-size: 22px;
     padding: 14px;
     border-radius: 10px;
@@ -2103,6 +2118,22 @@ select.open + .input-icon {
       padding-bottom: 10px;
     }
   }
+  .register-check-list > li {
+    padding-left: 34px;
+  }
+  .register-check-list > li span {
+    margin-top: 12px;
+  }
+  .register-check-list > li::before {
+    display: block;
+    padding-top: 2px;
+    top: 1px;
+    font-size: 18px;
+  }
+  .register-check-list > li ul {
+    gap: 5px;
+    margin: 5px 0px;
+  }
 }
 .section--hero {
   z-index: 1;
@@ -2110,26 +2141,6 @@ select.open + .input-icon {
   padding-bottom: 80px;
   overflow: visible;
   flex: 1;
-}
-@media (max-width: 1023px) {
-  .section--hero .title.title--h1 {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
-    .section--hero .title.title--h1 {
-      padding-top: 4px;
-    }
-  }
-  .section--hero .title.title--h3 {
-    font-size: 16px;
-    max-width: 330px;
-  }
-}
-@media (max-width: 767px) {
-  .section--hero .title.title--h1 {
-    font-size: 32px;
-  }
 }
 @media (max-width: 1920px) {
   .section--hero.section--countdown {
@@ -2219,6 +2230,31 @@ select.open + .input-icon {
   -webkit-animation: rays 60s linear infinite;
           animation: rays 60s linear infinite;
   z-index: 1;
+}
+@media (max-width: 1023px) {
+  .section--hero .title.title--h1 {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+    .section--hero .title.title--h1 {
+      padding-top: 4px;
+    }
+  }
+  .section--hero .title.title--h3 {
+    font-size: 16px;
+    max-width: 330px;
+  }
+  .section--hero:not(.section--countdown) .animated-ring:before {
+    bottom: 50%;
+    -webkit-animation: rays_in_mobil 60s linear infinite;
+            animation: rays_in_mobil 60s linear infinite;
+  }
+}
+@media (max-width: 767px) {
+  .section--hero .title.title--h1 {
+    font-size: 32px;
+  }
 }
 
 .event-date {
@@ -2435,6 +2471,25 @@ select.open + .input-icon {
   .hero-title .madal {
     width: 320px;
   }
+  .instructions {
+    gap: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 160px;
+    margin-top: -100px;
+    margin-bottom: 100px;
+    max-width: 900px;
+  }
+  .instructions li {
+    width: 260px;
+    font-size: 18px;
+  }
+  .instructions li:first-child, .instructions li:last-child {
+    top: 0px;
+  }
+  .instructions li:nth-child(2n+2) {
+    top: 50px;
+  }
 }
 @media (max-width: 1023px) {
   .hero-background-images {
@@ -2465,10 +2520,75 @@ select.open + .input-icon {
   .hero-background-images img.coin {
     width: 150px;
     right: 20px;
-    bottom: -50px;
+    bottom: -20px;
   }
   .hero-title .madal {
     margin: 0px auto -50px auto;
+  }
+}
+@media (max-width: 767px) {
+  .event-date {
+    max-width: 254px;
+    position: relative;
+    left: 0px;
+    top: 70px;
+    padding: 14px 32px 10px 32px;
+    margin: 0 auto;
+  }
+  .event-date span {
+    font-size: 16px;
+  }
+  .hero-background-images img.lines {
+    margin-top: -70px;
+  }
+  .hero-background-images img.stadium {
+    width: 120px;
+    right: auto;
+    top: auto;
+    bottom: 40px;
+  }
+  .hero-background-images img.coin-left {
+    width: 90px;
+    left: 10px;
+    top: 110px;
+  }
+  .hero-background-images img.coin {
+    display: none;
+  }
+  .hero-background-images img.gift {
+    width: 120px;
+    left: auto;
+    right: 0px;
+    bottom: 280px;
+  }
+  .instructions {
+    gap: 50px;
+    padding-top: 160px;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    max-width: 900px;
+  }
+  .instructions li {
+    width: 100%;
+    font-size: 18px;
+  }
+  .instructions li:before {
+    left: 50%;
+    transform: translate(-100px, 0px);
+  }
+  .instructions li img {
+    margin: 0px auto 16px auto;
+    width: auto;
+    max-height: 152px;
+  }
+  .instructions li:last-child img {
+    max-height: 172px;
+  }
+  .instructions li:nth-child(2n+2) {
+    top: 0px;
+  }
+  .section--hero .buttons {
+    margin-bottom: 20px;
   }
 }
 .section--stadion {
