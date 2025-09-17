@@ -112,7 +112,9 @@ a {
 
 .gradient-text,
 .instructions li:before,
-.register-check-list > li:before {
+.register-check-list > li:before,
+.answer__content b,
+.section--faq .subtitle b {
   background: var(--gradient-light);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -291,6 +291,10 @@ $popup_transition: 0.5s;
         padding-top: 2px;
         top: 1px;
         font-size: 18px;
+        @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+          padding-top: 4px;
+          top: -2px;
+        }
       }
 
       ul {

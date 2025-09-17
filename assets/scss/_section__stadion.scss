@@ -19,14 +19,13 @@
 
   .try {
     position: absolute;
-    right: 0px;
+    right: 50%;
     top: 0px;
-    @media (max-width: 1279px) {
-      right: 20px;
-    }
-    @media (max-width: 767px) {
+    transform: translate(450px, 0px);
+    @media (max-width: 1020px) {
       position: relative;
       right: 0px;
+      transform: translate(0px, 0px);
       margin: 24px auto 16px;
     }
   }
@@ -236,9 +235,13 @@
   flex-shrink: 0;
 
   span {
+    display: block;
     font-weight: 700;
     font-size: 50px;
     font-variation-settings: 'GRAD' -20, 'wdth' 100, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 79, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
       'YTFI' 738;
+    @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+      padding-top: 28px;
+    }
   }
 }

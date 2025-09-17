@@ -3,6 +3,10 @@
   background: var(--bg-invers);
   min-height: 1000px;
 
+  @media (max-width: 767px) {
+    padding: 80px 0px 80px 0px;
+  }
+
   .title-wrapper {
     max-width: 824px;
     margin: 0 auto;
@@ -12,8 +16,15 @@
       font-size: 20px;
       font-weight: 400;
       line-height: 1.5;
-      .gradient-text {
+      b {
+        display: inline-block;
         font-weight: 600;
+        cursor: pointer;
+      }
+      @media (max-width: 767px) {
+        font-size: 16px;
+        font-variation-settings: 'GRAD' 0, 'wdth' 125, 'slnt' 0, 'XOPQ' 96, 'YOPQ' 100, 'XTRA' 468, 'YTUC' 712, 'YTLC' 514, 'YTAS' 750, 'YTDE' -203,
+          'YTFI' 738;
       }
     }
   }
@@ -23,7 +34,9 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    min-width: 1280px;
     top: 0px;
     background: url('../img/svg/faq-bg.svg') no-repeat center top;
     background-size: 100% auto;

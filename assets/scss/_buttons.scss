@@ -147,6 +147,10 @@
 
     span {
       font-size: 12px;
+      display: block;
+      @supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+        padding-top: 8px;
+      }
     }
   }
 
